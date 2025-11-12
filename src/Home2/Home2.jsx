@@ -9,7 +9,7 @@ import Start from '../Conponit/Start'
 import Retng from '../Conponit/Retng'
 import Card3 from '../Conponit/Card3'
 import { Link, NavLink, Outlet } from 'react-router-dom'
-import Card from '../Conponit/Card'
+import Card from '../Conponit/Card2'
 
 function App() {
   return (
