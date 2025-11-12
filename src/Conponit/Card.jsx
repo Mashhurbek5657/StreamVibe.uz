@@ -1,65 +1,78 @@
-import React, { useState, useEffect } from "react";
-import Img6 from './Vector 619 (1).png'
+import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "swiper/css/a11y";
 
-export default function MoviesApp() {
-    const [movies, setMovies] = useState([]);
+import Img6 from "./Vector 619 (1).png";
+import { OurSevise } from "../../constants/data";
+
+export default function MoviesSwiper() {
     const [selected, setSelected] = useState(null);
 
-    useEffect(() => {
-        fetch("/src/movies.json")
-            .then((res) => res.json())
-            .then((data) => setMovies(data.movies))
-            .catch((err) => console.error("JSON yuklashda xato:", err));
-    }, []);
-
     return (
-        <div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-                {movies.map((movie, index) => (
-                    <div
-                        key={index}
-                        onClick={() => setSelected(movie)}
-                        className=" flex gap-20 mt-10 cursor-pointer">
-                        <div className="cards">
+        <div className="contenr">
+            <div className="tek">
+                <div>
+                    <h1 className=' text-[30px]'>Explore our wide variety of categories</h1>
+                    <p>Whether you're looking for a comedy to make you laugh, a drama to make you think, or a documentary to learn something new</p>
+                </div>
+            </div>
+            <br />
+            <br />
+            <Swiper
+                modules={[Navigation]}
+                spaceBetween={20}
+                navigation
+                slidesPerView={3}
+                breakpoints={{
+                    640: { slidesPerView: 1 },
+                    768: { slidesPerView: 2 },
+                    1024: { slidesPerView: 3 },
+                }}
+            >
+                {OurSevise.map((movie, index) => (
+                    <SwiperSlide key={index}>
+                        <div
+                            onClick={() => setSelected(movie)}
+                            className="bg-[#1A1A1A] border border-[#262626] rounded-lg overflow-hidden shadow-lg cursor-pointer "
+                        >
                             <img
                                 src={movie.image}
                                 alt={movie.name}
-                                className="w-full h-48 object-cover rounded-[8px]"
+                                className="w-full h-48 object-cover cursor-pointer transition-transform hover:scale-[1.03]"
                             />
-                            <div className=" flex justify-between items-center">
-                                <br />
-                                <div className='fon'>
-                                    <div className="p-5">
-                                        <h2 className="text-[17px]">{movie.name}</h2>
-                                    </div>
-                                </div>
-                                <img src={Img6} alt="" />
+                            <div className="p-4 flex justify-between items-center">
+                                <h3 className="text-lg font-bold">{movie.name}</h3>
+                                <img src={Img6} alt="" className="w-6 h-6" />
                             </div>
                         </div>
-                    </div>
+                    </SwiperSlide>
                 ))}
-            </div>
+            </Swiper>
+
             {selected && (
                 <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
-                    <div className="bg-gray-900 mt-[70px] h-[600px] rounded-xl max-w-3xl w-full overflow-hidden relative">
+                    <div className="bg-gray-900 mt-[150px] rounded-xl max-w-3xl w-full overflow-hidden relative shadow-2xl">
                         <button
                             onClick={() => setSelected(null)}
-                            className="absolute top-2 right-3 text-gray-400 hover:text-white text-2xl"
+                            className="absolute top-4 right-5 text-gray-400 hover:text-white text-3xl font-bold"
                         >
-                            ✕
+                            ×
                         </button>
-
                         <div className="aspect-w-16 aspect-h-9">
                             <iframe
                                 title={selected.name}
                                 src={toEmbedUrl(selected.video)}
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen
-                                className="w-full h-[500px]"
+                                className="w-full h-[400px]"
                             />
                         </div>
-
-                        <div className="p-5">
+                        <div className="p-6">
                             <h2 className="text-2xl font-bold mb-3">{selected.name}</h2>
                             <p className="text-gray-300">{selected.description}</p>
                         </div>

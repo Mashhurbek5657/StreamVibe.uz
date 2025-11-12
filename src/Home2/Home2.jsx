@@ -8,7 +8,7 @@ import Futer from '../Conponit/Futer'
 import Start from '../Conponit/Start'
 import Retng from '../Conponit/Retng'
 import Card3 from '../Conponit/Card3'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, NavLink, Outlet } from 'react-router-dom'
 
 function App() {
   return (
@@ -39,11 +39,6 @@ function App() {
                 <p>Whether you're looking for a comedy to make you laugh, a drama to make you think, or a documentary to learn something new</p>
               </div>
               <div>
-                <div className="buttons1">
-                  <button className=' w-56 h-10 rounded-[8px] p-3 bg-[#1A1A1A]'><img src={Img3} alt="" /></button>
-                  <img src={Img5} alt="" />
-                  <button className=' w-56 h-10 rounded-[8px] p-3 bg-[#1A1A1A]'><img src={Img4} alt="" /></button>
-                </div>
               </div>
             </div>
             <Card3 />
@@ -157,15 +152,27 @@ function App() {
               <p className=' text-[12px] text-[#999999]'>Join StreamVibe and select from our flexible subscription options tailored to suit your viewing preferences. Get ready for non-stop entertainment!</p>
             </div>
             <div className="button1">
-              <Link to={`/nons`}>
-                <button className='button2'>Monthly</button>
-              </Link>
-              <Link to={`/Sons`}>
-                <button className='button2'>Yearly</button>
-              </Link>
+              <NavLink
+              className='px-4 py-3 rounded-[8px] cursor-pointer'
+                to="/"
+                 activeClassName={({ isActive }) =>
+                  isActive ? 'button2 active2' : 'button2'
+                }
+              >
+                <button className='w-full h-full'>Monthly</button>
+              </NavLink>
+              <NavLink
+              className='px-4 py-3 rounded-[8px] cursor-pointer'
+                to="/Sons"
+                 activeClassName={({ isActive }) =>
+                  isActive ? 'button2 active2' : 'button2'
+                }
+              >
+                <button className='w-full h-full'>Yearly</button>
+              </NavLink>
             </div>
           </div>
-            <Outlet />
+          <Outlet />
           <Start />
           <Futer />
         </div>

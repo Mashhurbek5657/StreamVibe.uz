@@ -1,8 +1,6 @@
 import React from 'react'
-import Card from '../Conponit/Card'
 import Img3 from '../Conponit/Vector 619.png'
 import Img4 from '../Conponit/Vector (3).png'
-import Img5 from '../Conponit/Indicators Container.png'
 import Navbar from '../Conponit/Navbar'
 import Img2 from '../Conponit/Rectangle 511 (Stroke).png'
 import Img22 from '../Conponit/img1/Vector (7).png'
@@ -10,6 +8,10 @@ import Img33 from '../Conponit/img1/Vector (8).png'
 import Img44 from '../Conponit/img1/Vector (9).png'
 import Futer from '../Conponit/Futer'
 import Start from '../Conponit/Start'
+import Card from '../Conponit/Card'
+import Card2 from '../Conponit/Card4'
+import Card3 from '../Conponit/Card5'
+import Card4 from '../Conponit/Card6'
 
 export default function Movies() {
     return (
@@ -39,19 +41,14 @@ export default function Movies() {
                         </div>
                     </div>
                     <br />
-                    <div className="tek">
-                        <div>
-                            <h1 className=' text-[40px]'>Our Genres</h1>
-                        </div>
-                        <div>
-                            <div className="buttons1">
-                                <button className=' w-56 h-10 rounded-[8px] p-3 bg-[#1A1A1A]'><img src={Img3} alt="" /></button>
-                                <img src={Img5} alt="" />
-                                <button className=' w-56 h-10 rounded-[8px] p-3 bg-[#1A1A1A]'><img src={Img4} alt="" /></button>
-                            </div>
-                        </div>
-                    </div>
+                    <br />
                     <Card />
+                    <br />
+                    <Card4/>
+                    <br />
+                    <Card3/>
+                    <br />
+                    <Card2/>
                     <Start />
                     <Futer />
                 </div>

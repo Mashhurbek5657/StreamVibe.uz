@@ -41,10 +41,10 @@ export default function Card3() {
             </div>
             {selected && (
                 <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
-                    <div className="bg-gray-900 mt-[70px] h-[600px] rounded-xl max-w-3xl w-full overflow-hidden relative">
+                    <div className="bg-gray-900 mt-[100px] h-[600px] rounded-xl max-w-3xl w-full overflow-hidden relative">
                         <button
                             onClick={() => setSelected(null)}
-                            className="absolute top-2 right-3 text-gray-400 hover:text-white text-2xl"
+                            className="absolute top-5 right-3 text-gray-400 hover:text-white text-2xl"
                         >
                             ✕
                         </button>

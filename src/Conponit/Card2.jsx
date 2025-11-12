@@ -9,7 +9,7 @@ export default function Card() {
         <div className=" flex gap-20 mt-10">
             <div className="cards">
                 <img src={Img7} alt="" className=' cursor-pointer' />
-                <br />
+                <br/>
                 <div className='fon'>
                     <p>Action</p>
                     <img src={Img6} alt="" />

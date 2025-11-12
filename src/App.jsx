@@ -1,5 +1,5 @@
 import './App.css'
-import React from 'react'
+import React, { useState } from 'react'
 // import { Route, Routes } from 'react-router-dom'
 import Movies from './Movies/Movies'
 import Support from './Support/Support'
@@ -11,6 +11,7 @@ import Abaut from './Support/_components/AboutContact'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Nons from './Home2/_components2/Nons'
 import Sons from './Home2/_components2/Sons'
+import Login from './Login/Login.jsx'
 
 
 export default function App() {
@@ -66,12 +67,18 @@ export default function App() {
         },
       ],
     },
-  ]);
+  ])
+
+  const [isLogin, setLogin] = useState(false)
 
   return (
     <div>
       {/* <Navbar/> */}
-      <RouterProvider router={routers}/>
+      {isLogin ? (
+        <RouterProvider router={routers} />
+      ) : (
+        <Login setLogin={setLogin} />
+      )}
       {/* <Routes>
         <Route path='/' element={<Home2 />} />
         <Route path='/video' element={<Movies />} />
