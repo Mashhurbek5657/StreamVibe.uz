@@ -9,6 +9,7 @@ import Start from '../Conponit/Start'
 import Retng from '../Conponit/Retng'
 import Card3 from '../Conponit/Card3'
 import { Link, NavLink, Outlet } from 'react-router-dom'
+import Card from '../Conponit/Card'
 
 function App() {
   return (
@@ -41,7 +42,7 @@ function App() {
               <div>
               </div>
             </div>
-            <Card3 />
+            <Card/>
             <Retng />
           </div>
           <div className="hunk">
